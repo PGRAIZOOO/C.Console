@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "(\.(sql|env|example|md|json|lock)$|^\.git)">
+    Require all denied
+</FilesMatch>
