@@ -15,8 +15,8 @@ if (is_post()) {
     $errors = validate_login_form($login, $password);
     if (!$errors) {
         $row = db_row(
-            'SELECT user_id, username, email, password, role, full_name, is_active FROM users WHERE (username = ? OR email = ?) LIMIT 1',
-            [$login, $login]
+            'SELECT user_id, username, email, password, role, full_name, is_active FROM users WHERE email = ? LIMIT 1',
+            [$login]
         );
         if ($row && password_matches($password, (string) $row['password'])) {
             if ((int) $row['is_active'] !== 1) {
@@ -27,7 +27,7 @@ if (is_post()) {
                 redirect($row['role'] === 'Admin' ? 'admin/index.php' : 'index.php');
             }
         } else {
-            flash('error', 'Incorrect username, email or password.');
+            flash('error', 'Incorrect email or password.');
         }
     }
 }
@@ -41,8 +41,8 @@ include('../includes/header.php');
     <form method="post" class="form" novalidate>
         <?= csrf_field() ?>
         <div class="field">
-            <label for="login">Username or email</label>
-            <input type="text" id="login" name="login" value="<?= e($login) ?>" autofocus autocomplete="username">
+            <label for="login">Email Address</label>
+            <input type="email" id="login" name="login" value="<?= e($login) ?>" autofocus autocomplete="email">
             <?= field_error($errors, 'login') ?>
         </div>
         <div class="field">

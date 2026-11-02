@@ -159,18 +159,18 @@ CREATE TABLE contact_messages (
 );
 
 INSERT INTO users (username, email, password, role, full_name, contact_number, address, is_active) VALUES
-('cconsole', 'cconsole@cconsole.test', 'admin123', 'Admin', 'C.Console Administrator', '09171234567', 'Taguig City', 1),
-('jdelacruz', 'juan.delacruz@gmail.com', 'hello123', 'Customer', 'Juan Dela Cruz', '09170001234', 'Quezon City', 1),
-('msantos', 'maria.santos@gmail.com', 'HelloWorld', 'Customer', 'Maria Santos', '09170002345', 'Manila', 1),
-('jreyes', 'jose.reyes@gmail.com', 'guesspassword', 'Customer', 'Jose Reyes', '09170003456', 'Caloocan', 1),
-('alim', 'ana.lim@gmail.com', 'pass_is_word', 'Customer', 'Ana Lim', '09170004567', 'Pasig', 1),
-('mdizon', 'mark.dizon@gmail.com', 'realpass1109', 'Customer', 'Mark Dizon', '09170005678', 'Makati', 1),
-('lgarcia', 'liza.garcia@gmail.com', 'Hardpassword', 'Customer', 'Liza Garcia', '09170006789', 'Parañaque', 1),
-('jcruz', 'john.cruz@gmail.com', 'CedricJuly', 'Customer', 'John Cruz', '09170007890', 'Laguna', 1),
-('ebautista', 'ella.bautista@gmail.com', 'Domingo11', 'Customer', 'Ella Bautista', '09170008901', 'Cavite', 1),
-('mtorres', 'miguel.torres@gmail.com', 'Nunez2006', 'Customer', 'Miguel Torres', '09170009012', 'Bulacan', 1),
-('pmendoza', 'paula.mendoza@gmail.com', 'mendopass', 'Customer', 'Paula Mendoza', '09170010123', 'Rizal', 1),
-('kramos', 'kevin.ramos@gmail.com', 'easypeazy', 'Customer', 'Kevin Ramos', '09170011234', 'Taguig', 1);
+('cconsole', 'cconsole@cconsole.test', '$2y$10$R0Wy1fZWK/jvV9zQps/UhOt3ACsF5UJpAqDP353lEPki42TbNg8A6', 'Admin', 'C.Console Administrator', '09171234567', 'Taguig City', 1),
+('jdelacruz', 'juan.delacruz@gmail.com', '$2y$10$BJFUvsPn0OqvQbZ7Mu/48OJirzbTWhNzmfDVkKOrU3ASLnyYq/eE6', 'Customer', 'Juan Dela Cruz', '09170001234', 'Quezon City', 1),
+('msantos', 'maria.santos@gmail.com', '$2y$10$ilk9TEErtneLX7Q6YpGPE.PifhrttQ6k/5CIwJ8G8ZSb3giznLjmG', 'Customer', 'Maria Santos', '09170002345', 'Manila', 1),
+('jreyes', 'jose.reyes@gmail.com', '$2y$10$447JV/1ns5YQ9LQRMb.8c.lInSV1qaOQjMUjpqnbaLHxNY52RuzNS', 'Customer', 'Jose Reyes', '09170003456', 'Caloocan', 1),
+('alim', 'ana.lim@gmail.com', '$2y$10$kdMIaO1JuQi1W3WgjuLfaOzLjZZiesyjDgj8gTf2hw.ngtqxR4TAS', 'Customer', 'Ana Lim', '09170004567', 'Pasig', 1),
+('mdizon', 'mark.dizon@gmail.com', '$2y$10$xwCYSqapKzTakxkhpgEfBONs7F5e/VueREoU96eePeIRtVvkeAWD.', 'Customer', 'Mark Dizon', '09170005678', 'Makati', 1),
+('lgarcia', 'liza.garcia@gmail.com', '$2y$10$vsLYTAa1/DBgDCGhCIjFyuGH1u.DfQTlhi9GlZR3yKWVPxG23wiim', 'Customer', 'Liza Garcia', '09170006789', 'Parañaque', 1),
+('jcruz', 'john.cruz@gmail.com', '$2y$10$AAn5OAXRwImFHou9sxigGOhEIuVidLzFezW5aQjlCF9O/H0QbKgzK', 'Customer', 'John Cruz', '09170007890', 'Laguna', 1),
+('ebautista', 'ella.bautista@gmail.com', '$2y$10$y32gKHGZFylfFvGjpB8ABO/gx3RdES0/kA9/heuMvFG.Wiyr7A6dy', 'Customer', 'Ella Bautista', '09170008901', 'Cavite', 1),
+('mtorres', 'miguel.torres@gmail.com', '$2y$10$eJd4lkN9FCPDrPWo7ieVHeBetdIZ2vkrJvPo0Uv.M.voYnoOUykei', 'Customer', 'Miguel Torres', '09170009012', 'Bulacan', 1),
+('pmendoza', 'paula.mendoza@gmail.com', '$2y$10$OIn8I/f4x8nd13w3dxDu9OMLp1yz1D4a4k6gueYA3YzPPwS6RZNaS', 'Customer', 'Paula Mendoza', '09170010123', 'Rizal', 1),
+('kramos', 'kevin.ramos@gmail.com', '$2y$10$HYG0wkEN0BTTQONlof/2w.Rb7CYh28ASbTy6xF/xCDOZP80d6iRqm', 'Customer', 'Kevin Ramos', '09170011234', 'Taguig', 1);
 
 INSERT INTO products (game_code, name, game_studio, product_type, genre, unit_cost_price, unit_selling_price, min_stock_threshold, description, is_active) VALUES
 ('PS5001', 'God of War Ragnarok', 'Santa Monica Studio', 'PlayStation 5 Game', 'Action', 2200.00, 2899.00, 5, 'An epic Norse mythology adventure following Kratos and Atreus across the Nine Realms as they confront gods, monsters, and their own destinies in the build-up to the battle of Ragnarök.', 1),

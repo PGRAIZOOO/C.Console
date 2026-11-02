@@ -303,16 +303,12 @@ function current_account(): ?array
 
 function password_matches(string $plain, string $stored): bool
 {
-    if (preg_match('/^\$(2y|2a|2b|argon2i|argon2id)\$/', $stored)) {
-        return password_verify($plain, $stored);
-    }
-    return $stored !== '' && hash_equals($stored, $plain);
+    return $stored !== '' && password_verify($plain, $stored);
 }
 
 function refresh_password_hash(int $userId, string $plain, string $stored): void
 {
-    $hashed = preg_match('/^\$(2y|2a|2b|argon2i|argon2id)\$/', $stored);
-    if (!$hashed || password_needs_rehash($stored, PASSWORD_BCRYPT)) {
+    if (password_needs_rehash($stored, PASSWORD_BCRYPT)) {
         q('UPDATE users SET password = ? WHERE user_id = ?', [password_hash($plain, PASSWORD_BCRYPT), $userId]);
     }
 }
@@ -778,15 +774,9 @@ function validate_login_form(string $login, string $password): array
 {
     $errors = [];
     if ($login === '') {
-        $errors['login'] = 'Enter your username or email.';
-    } elseif (mb_strlen($login) > 100) {
-        $errors['login'] = 'That is too long for a username or email.';
-    } elseif (str_contains($login, '@')) {
-        if (!valid_email($login)) {
-            $errors['login'] = 'Enter a valid email address.';
-        }
-    } elseif (!preg_match('/^[A-Za-z0-9_.]{3,50}$/', $login)) {
-        $errors['login'] = 'A username has 3 to 50 letters, numbers, dots or underscores.';
+        $errors['login'] = 'Enter your email address.';
+    } elseif (!valid_email($login)) {
+        $errors['login'] = 'Enter a valid email address.';
     }
     if ($password === '') {
         $errors['password'] = 'Enter your password.';

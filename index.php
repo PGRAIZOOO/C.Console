@@ -84,6 +84,11 @@ include('./includes/header.php');
     <span class="eyebrow">PlayStation 5 games only</span>
     <h1>Your next PS5 game is one click away</h1>
     <p>Welcome to <?= e(SHOP_NAME) ?>, an online game store built around a focused PlayStation 5 catalogue, clear peso prices and honest stock levels. Browse, order and track everything in one place.</p>
+    <form class="hero-search" method="get" action="<?= e(url('shop.php')) ?>" role="search">
+        <label class="sr-only" for="home-q">Search games</label>
+        <input type="search" id="home-q" name="q" maxlength="100" required placeholder="Search by title, studio, genre, code or price" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
     <div class="hero-actions">
         <a class="btn btn-primary" href="<?= e(url('shop.php')) ?>">Shop all games</a>
         <?php if (current_user()): ?>

@@ -2,7 +2,7 @@
 include('./includes/config.php');
 include('./includes/functions.php');
 
-$search = trim($_GET['q'] ?? '');
+$search = is_string($_GET['q'] ?? null) ? mb_substr(trim((string) preg_replace('/[\x00-\x1F\x7F]+/u', ' ', $_GET['q'])), 0, 100) : '';
 $genre = $_GET['genre'] ?? '';
 $sort = $_GET['sort'] ?? 'new';
 $stock = $_GET['stock'] ?? '';
@@ -19,8 +19,8 @@ $where = ['p.is_active = 1'];
 $params = [];
 if ($search !== '') {
     // title, studio, code, genre text and price (e.g. "2899", "₱2,899" or "action")
-    $like = '%' . $search . '%';
-    $priceText = '%' . str_replace(['₱', ',', ' '], '', $search) . '%';
+    $like = '%' . like_escape($search) . '%';
+    $priceText = '%' . like_escape(str_replace(['₱', ',', ' '], '', $search)) . '%';
     $where[] = '(p.name LIKE ? OR p.game_studio LIKE ? OR p.game_code LIKE ? OR p.genre LIKE ? OR CAST(p.unit_selling_price AS CHAR) LIKE ?)';
     array_push($params, $like, $like, $like, $like, $priceText);
 }
